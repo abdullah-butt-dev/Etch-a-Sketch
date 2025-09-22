@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <button class="btn">Size of Grid</button>
+  <button class="btn js-btn">Size of Grid</button>
 
   <div class="container">
 
@@ -17,12 +17,13 @@
 <script>
 
   const cont = document.querySelector('.container');
+  const btn = document.querySelector('.js-btn');
 
-  createBoxes();
+  createBoxes(256);
 
-  function createBoxes() {
+  function createBoxes(totalSize) {
 
-    for(let i = 1; i <= 256; i++) {
+    for(let i = 1; i <= totalSize; i++) {
 
       const box = document.createElement('div');
       box.addEventListener('mouseenter', () => {
@@ -39,6 +40,11 @@
     return Math.floor((Math.random() * 255) + 1);
   }
 
+  btn.addEventListener('click', () => {
+    const noOfGrid = prompt("Enter your desired size for grid (less than 100)");
+    const totalSizeOfGrid = noOfGrid * noOfGrid;
+    createBoxes(totalSizeOfGrid);
+  });
 
 </script>  
 </body>
