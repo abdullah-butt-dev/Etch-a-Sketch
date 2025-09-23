@@ -19,10 +19,12 @@
   const cont = document.querySelector('.container');
   const btn = document.querySelector('.js-btn');
 
-  createBoxes(256);
+  createBoxes(16);
 
-  function createBoxes(totalSize) {
+  function createBoxes(noOfGrid) {
 
+    const totalSize = noOfGrid * noOfGrid;
+ 
     for(let i = 1; i <= totalSize; i++) {
 
       const box = document.createElement('div');
@@ -30,6 +32,8 @@
         box.style.backgroundColor = `rgb(${randomNo()}, ${randomNo()}, ${randomNo()})`;
       });
       box.classList.add('square-box');
+      box.style.width = `calc(${100 / noOfGrid}%)`;
+      box.style.height = `calc(${100 / noOfGrid}vh)`;
       cont.appendChild(box);
 
     }
@@ -42,8 +46,7 @@
 
   btn.addEventListener('click', () => {
     const noOfGrid = prompt("Enter your desired size for grid (less than 100)");
-    const totalSizeOfGrid = noOfGrid * noOfGrid;
-    createBoxes(totalSizeOfGrid);
+    createBoxes(noOfGrid);
   });
 
 </script>  
