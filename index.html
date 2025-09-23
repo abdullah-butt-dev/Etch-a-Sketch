@@ -40,14 +40,25 @@
 
   }
 
+  function removeBoxes() {
+    const squareBox = document.querySelectorAll('.square-box');
+
+    for(const box of squareBox) {
+      box.remove();
+    }
+
+  }
+
   function randomNo() {
     return Math.floor((Math.random() * 255) + 1);
   }
 
   btn.addEventListener('click', () => {
     const noOfGrid = prompt("Enter your desired size for grid (less than 100)");
+    removeBoxes();
     createBoxes(noOfGrid);
   });
+
 
 </script>  
 </body>
