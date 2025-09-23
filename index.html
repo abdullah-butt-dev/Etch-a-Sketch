@@ -54,7 +54,10 @@
   }
 
   btn.addEventListener('click', () => {
-    const noOfGrid = prompt("Enter your desired size for grid (less than 100)");
+    let noOfGrid;
+    do {
+      noOfGrid = prompt("Enter your desired squares per side (less than 100):");
+    } while(Number(noOfGrid) > 100);
     removeBoxes();
     createBoxes(noOfGrid);
   });
